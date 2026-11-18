@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/erieflin/hozoverlay/issues"
   },
-  "homepage": "https://erieflin.github.io/hozoverlay",
+  "homepage": "https://derpaholicrex.github.io/hozoverlay/",
   "dependencies": {
     "raven-js": "^3.24.0",
     "react": "^16.3.0",
