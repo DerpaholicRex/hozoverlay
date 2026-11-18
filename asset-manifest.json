@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/hozoverlay/static/css/main.4ddfe114.css",
+    "main.js": "/hozoverlay/static/js/main.652236b6.js",
+    "static/media/mog.png": "/hozoverlay/static/media/mog.ac9775c8097840fbe8a5.png",
+    "static/media/rpr.png": "/hozoverlay/static/media/rpr.f4c8904d6ae85cf44081.png",
+    "static/media/sge.png": "/hozoverlay/static/media/sge.ed6d4372da983cc483a6.png",
+    "index.html": "/hozoverlay/index.html",
+    "main.4ddfe114.css.map": "/hozoverlay/static/css/main.4ddfe114.css.map",
+    "main.652236b6.js.map": "/hozoverlay/static/js/main.652236b6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ddfe114.css",
+    "static/js/main.652236b6.js"
+  ]
+}
