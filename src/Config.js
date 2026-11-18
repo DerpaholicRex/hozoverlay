@@ -209,6 +209,17 @@ class ConfigRaw extends Component {
             </label>
             <input
               type="checkbox"
+              name="showSelfDps"
+              id="showSelfDps"
+              defaultChecked={config.showSelfDps}
+              onChange={this.handleConfig}
+            />
+            <label htmlFor="showSelfDps">
+              {/* Your DPS (shown when not in the top combatants) */}
+              {loc.toggleOption15}
+            </label>
+            <input
+              type="checkbox"
               name="showDamagePercent"
               id="showDamagePercent"
               defaultChecked={config.showDamagePercent}

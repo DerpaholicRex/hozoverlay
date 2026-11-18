@@ -28,7 +28,12 @@ export default class CombatantHorizontal extends Component {
   }
   render() {
     const { config, data, isSelf } = this.props
-    const order = this.props.rank
+    // orderOverride lets a row (e.g. the current player pinned to the left)
+    // keep its real rank number while appearing at a different position
+    const order =
+      this.props.orderOverride !== undefined
+        ? this.props.orderOverride
+        : this.props.rank
     const jobName = data.Job || 'WHO?'
     const name = data.name.toLowerCase()
     let jobStyleClass, jobIcon, damageWidth

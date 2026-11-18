@@ -48,7 +48,59 @@ class Combatants extends Component {
         />
       )
     }
-    return <div className="combatants">{rows}</div>
+
+    // Find the current player (self) among the relevant combatants so their
+    // DPS is always displayed even when they fall outside the top N.
+    let selfKey = null
+    let selfRank = null
+    let filteredIndex = 0
+    for (const key of dataArray) {
+      const combatant = this.props.data[key]
+      if (
+        combatant.name.toLowerCase() === 'limit break' ||
+        (!this.props.config.showJobless &&
+          (!combatant.Job || combatant.Job === '')) ||
+        (combatant.ENCDPS <= 0 && combatant.ENCHPS <= 0)
+      ) {
+        continue
+      }
+      filteredIndex++
+      const isSelf =
+        combatant.name.toUpperCase() === 'YOU' ||
+        this.props.config.characterName === combatant.name
+      if (isSelf) {
+        selfKey = key
+        selfRank = filteredIndex
+        break
+      }
+    }
+    const selfInTopN = selfKey !== null && battler.includes(selfKey)
+
+    // Always display the current player's DPS when they are not in the top N,
+    // pinned to the left of the combatants list.
+    let selfRow = null
+    if (this.props.config.showSelfDps && selfKey !== null && !selfInTopN) {
+      const selfCombatant = this.props.data[selfKey]
+      selfRow = (
+        <CombatantHorizontal
+          encounterDamage={this.props.encounterDamage}
+          rank={selfRank}
+          data={selfCombatant}
+          config={this.props.config}
+          isSelf={true}
+          orderOverride={999}
+          key={`self-${selfKey}`}
+        />
+      )
+    }
+
+    return (
+      <div className="combatants">
+        {rows}
+        {selfRow && <div className="combatants-separator" />}
+        {selfRow}
+      </div>
+    )
   }
 }
 
